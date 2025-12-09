@@ -43,7 +43,7 @@ document.head.appendChild(style);
 
 
 // --- 3. Active Navigation Highlighting ---
-const sections = document.querySelectorAll('section[id], div[id="resume"]');
+const sections = document.querySelectorAll('section[id], header[id], div[id="resume"]');
 const navLinksAll = document.querySelectorAll('.nav-links li a');
 
 const navObserver = new IntersectionObserver((entries) => {
