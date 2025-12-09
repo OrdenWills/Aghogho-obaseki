@@ -155,6 +155,11 @@ p {
     color: var(--accent-color);
 }
 
+.nav-links li a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
 .btn-download {
     border-bottom: 1px solid var(--text-primary);
 }

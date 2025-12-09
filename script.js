@@ -29,8 +29,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 document.querySelectorAll('section h2, .project-card, .job-item').forEach(el => {
-    el.style.opacity = "0"; 
-    el.classList.add('fade-in-scroll'); 
+    el.style.opacity = "0";
+    el.classList.add('fade-in-scroll');
     observer.observe(el);
 });
 
@@ -42,6 +42,39 @@ style.innerHTML = `
 document.head.appendChild(style);
 
 
+// --- 3. Active Navigation Highlighting ---
+const sections = document.querySelectorAll('section[id], div[id="resume"]');
+const navLinksAll = document.querySelectorAll('.nav-links li a');
+
+const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+
+            // Remove active class from all nav links
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the corresponding nav link
+            const activeLink = document.querySelector(`.nav-links li a[href="#${id}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}, {
+    threshold: 0.3, // Trigger when 30% of the section is visible
+    rootMargin: '-80px 0px 0px 0px' // Account for fixed navbar
+});
+
+// Observe all sections
+sections.forEach(section => {
+    navObserver.observe(section);
+});
+
+
+
 // --- 3. Project Data (Expanded to 6 Projects with Gallery Support) ---
 const projects = {
     1: {
@@ -51,8 +84,8 @@ const projects = {
         process: "Focused on rhythmic layouts and bold typography to represent sound waves.",
         result: "Increased engagement by 20% in the first month.",
         // Note: In a real site, these would be file paths like 'img/project1-mockup.jpg'
-        imageMockup: "background-color: #dcdcdc;", 
-        imageFinal: "background-color: #333;" 
+        imageMockup: "background-color: #dcdcdc;",
+        imageFinal: "background-color: #333;"
     },
     2: {
         title: "Her Growth Hub",
@@ -106,7 +139,7 @@ const modalBody = document.getElementById("modal-body");
 
 function openModal(id) {
     const p = projects[id];
-    
+
     // Updated HTML structure to show Mockup AND Final Result
     modalBody.innerHTML = `
         <div class="modal-header">
@@ -150,6 +183,6 @@ function closeModal() {
     document.body.style.overflow = "auto";
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) { closeModal(); }
 }
