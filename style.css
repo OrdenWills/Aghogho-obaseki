@@ -23,6 +23,8 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Account for fixed navbar height */
 }
 
 body {
@@ -110,6 +112,12 @@ p {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     color: white;
+}
+
+.btn-resume {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    margin-top: 0;
 }
 
 /* --- Navigation --- */
@@ -450,6 +458,7 @@ footer {
     .modal-grid {
         grid-template-columns: 1fr;
     }
+
     /* Add this INSIDE the existing @media (max-width: 768px) { ... } */
 
     .hamburger {
@@ -471,9 +480,11 @@ footer {
     .hamburger.toggle span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
+
     .hamburger.toggle span:nth-child(2) {
         opacity: 0;
     }
+
     .hamburger.toggle span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
     }
@@ -503,7 +514,8 @@ footer {
     }
 
     .nav-links li a {
-        font-size: 1.5rem; /* Bigger text for mobile */
+        font-size: 1.5rem;
+        /* Bigger text for mobile */
     }
 }
 
