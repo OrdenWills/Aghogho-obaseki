@@ -118,12 +118,18 @@ p {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 2rem;
+    transition: all 0.3s ease;
+    /* Ensure smooth 3D transition */
 }
 
 .btn-primary:hover {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
     color: white;
+    transform: translateY(-4px);
+    /* Lifts the button */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Adds shadow for depth */
 }
 
 .btn-resume {
