@@ -589,7 +589,8 @@ footer {
 #about::after,
 #contact::before,
 .ticker-wrap::after,
-#resume::after {
+#resume::after,
+.logo-circle {
     background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 80%);
     box-shadow:
         inset -5px -5px 15px rgba(0, 0, 0, 0.1),
@@ -598,6 +599,17 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4px);
     /* -webkit-backdrop-filter: blur(4px); */
+}
+
+.logo-circle {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 4px;
+    position: relative;
+    top: -2px;
 }
 
 
