@@ -203,11 +203,20 @@ p {
 /* --- Ticker --- */
 .ticker-wrap {
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden;  <-- Removed to let circle show */
     background-color: #4A2F8A;
     color: white;
     padding: 1rem 0;
     white-space: nowrap;
+    position: relative;
+    z-index: 5;
+    /* Ensure it's above normal content but circle needs to be managed */
+}
+
+.ticker-viewport {
+    width: 100%;
+    overflow: hidden;
+    /* This clips the text */
 }
 
 .ticker {
@@ -686,7 +695,8 @@ footer {
     top: 10%;
     /* Half above ticker */
     right: 15%;
-    z-index: 0;
+    z-index: -1;
+    /* Behind text */
 }
 
 /* Small circle near download PDF button */
