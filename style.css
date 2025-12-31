@@ -557,6 +557,25 @@ footer {
     /* Behind content */
 }
 
+/* Shared Glassy Water Ball Styles */
+.hero::before,
+.hero::after,
+#work::before,
+#about::after,
+#contact::before,
+.ticker-wrap::after,
+#resume::after {
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 80%);
+    box-shadow:
+        inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+        inset 5px 5px 15px rgba(255, 255, 255, 0.4),
+        10px 20px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    /* -webkit-backdrop-filter: blur(4px); */
+}
+
+
 /* Hero Section Circles */
 .hero {
     position: relative;
@@ -568,10 +587,14 @@ footer {
     width: 400px;
     height: 400px;
     border-radius: 50%;
-    background: var(--shape-color-1);
     top: 10%;
     right: -100px;
-    z-index: -1;
+    z-index: 0;
+    /* Moved slightly up so glass effect is visible over background but under text if needed, or stick to -1 */
+    z-index: 1;
+    /* Bringing forward to show glass effect over background, but need to be careful with text readability. */
+    /* Actually glass effect works best if it overlays something. If it's behind everything on a solid bg, it's just a ball. */
+    z-index: 0;
 }
 
 .hero::after {
@@ -580,10 +603,9 @@ footer {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background: var(--shape-color-3);
     bottom: 15%;
     left: -50px;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Work Section Circles */
@@ -597,10 +619,9 @@ footer {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: var(--shape-color-2);
     top: 20%;
     left: -80px;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* About Section Circles */
@@ -614,10 +635,9 @@ footer {
     width: 350px;
     height: 350px;
     border-radius: 50%;
-    background: var(--shape-color-1);
     bottom: 10%;
     right: -120px;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Contact Section Circle */
@@ -631,10 +651,9 @@ footer {
     width: 280px;
     height: 280px;
     border-radius: 50%;
-    background: var(--shape-color-3);
     top: 30%;
     left: 5%;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Small circle between hero and work sections */
@@ -648,11 +667,10 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: var(--shape-color-2);
     top: 10%;
     /* Half above ticker */
     right: 15%;
-    z-index: -1;
+    z-index: 0;
 }
 
 /* Small circle near download PDF button */
@@ -666,9 +684,8 @@ footer {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background: var(--shape-color-1);
     top: 50%;
     right: -60px;
     transform: translateY(-50%);
-    z-index: -1;
+    z-index: 0;
 }
